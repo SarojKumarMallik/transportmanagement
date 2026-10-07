@@ -1,0 +1,15 @@
+{
+  "name": "travel-mern-platform",
+  "version": "1.0.0",
+  "description": "Full-stack Travel Platform built with MERN (Frontend, Backend, Admin Panel)",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:admin": "cd admin && npm run dev",
+    "seed": "cd backend && npm run seed",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../admin && npm install"
+  },
+  "keywords": ["travel", "mern", "react", "nodejs", "express", "mongodb", "admin-dashboard"],
+  "author": "Creovate",
+  "license": "ISC"
+}
