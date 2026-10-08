@@ -1,7 +1,7 @@
-node_modules
+node_modules/
 .env
-.DS_Store
-dist
-build
-.system_generated
-*.log
+.env.*
+!.env.example
+dist/
+build/
+.git/
