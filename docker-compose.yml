@@ -1,0 +1,44 @@
+services:
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: transport_frontend
+    ports:
+      - "8088:80"
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+  admin:
+    build:
+      context: ./admin
+    container_name: transport_admin
+    ports:
+      - "8089:80"
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    container_name: transport_backend
+    ports:
+      - "8007:8007"
+    environment:
+      PORT: 8007
+      MONGO_URI: mongodb://mongodb:27017/transportmanagement
+    restart: unless-stopped
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:8
+    container_name: transport_mongodb
+    restart: unless-stopped
+    volumes:
+      - transport_mongo_data:/data/db
+
+volumes:
+  transport_mongo_data:
